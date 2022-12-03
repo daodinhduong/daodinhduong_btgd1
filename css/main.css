@@ -2,6 +2,8 @@
 @import url(../css/layout/sidebar.css);
 @import url(../css/layout/content.css);
 @import url(./base/base.css);
+@import url(../css/layout/table.css);
+
 @font-face {
   font-family: Opensand-bold;
   src: url(../assets/Fonts/OpenSans-Bold.ttf);

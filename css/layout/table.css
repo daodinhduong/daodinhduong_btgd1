@@ -1,0 +1,29 @@
+table {
+  margin-top: 16px;
+  border-collapse: collapse;
+  width: 100%;
+  border: 1px solid #d5d8e6;
+}
+.table-header {
+  background-color: #f5f6fa;
+}
+
+tr {
+  height: 45px;
+}
+td {
+  padding: 0 16px;
+}
+.text-align-left {
+  text-align: left;
+}
+.text-align-center {
+  text-align: center;
+}
+
+.edit-icon {
+  background-image: url(../../assets/Icons/ic_Edit.png);
+}
+.remove-icon {
+  background-image: url(../../assets/Icons/ic_Remove.png);
+}
