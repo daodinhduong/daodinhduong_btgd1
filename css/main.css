@@ -1,0 +1,26 @@
+@import url(../css/layout/header.css);
+@import url(../css/layout/sidebar.css);
+@import url(../css/layout/content.css);
+@import url(./base/base.css);
+@font-face {
+  font-family: Opensand-bold;
+  src: url(../assets/Fonts/OpenSans-Bold.ttf);
+}
+@font-face {
+  font-family: Opensand;
+  src: url(../assets/Fonts/OpenSans-Regular.ttf);
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: Opensand;
+  margin: 0;
+}
+.container {
+  display: grid;
+  height: 100vh;
+
+  grid-template-columns: 220px 1fr;
+  grid-template-rows: 56px 1fr;
+}
