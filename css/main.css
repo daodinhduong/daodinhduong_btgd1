@@ -3,6 +3,7 @@
 @import url(../css/layout/content.css);
 @import url(./base/base.css);
 @import url(../css/layout/table.css);
+@import url(../css/layout/content_footer.css);
 
 @font-face {
   font-family: Opensand-bold;
