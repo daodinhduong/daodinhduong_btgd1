@@ -6,6 +6,7 @@
   position: absolute;
   bottom: 0;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 5px;
+  background-color: #fff;
 }
 .content-footer-container {
   display: flex;

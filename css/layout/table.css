@@ -3,6 +3,7 @@ table {
   border-collapse: collapse;
   width: 100%;
   border: 1px solid #d5d8e6;
+  margin-bottom: 68px;
 }
 .table-header {
   background-color: #f5f6fa;
