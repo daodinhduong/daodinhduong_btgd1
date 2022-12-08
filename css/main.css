@@ -4,6 +4,7 @@
 @import url(./base/base.css);
 @import url(../css/layout/table.css);
 @import url(../css/layout/content_footer.css);
+@import url(../css/layout/dialog_add.css);
 
 @font-face {
   font-family: Opensand-bold;
@@ -12,6 +13,12 @@
 @font-face {
   font-family: Opensand;
   src: url(../assets/Fonts/OpenSans-Regular.ttf);
+}
+:root {
+  --backgound-color: #eaecef;
+  --main-color: #03ae66;
+  --dialog-text-color: #4d4f5c;
+  --delete-color: #fa3939;
 }
 * {
   box-sizing: border-box;
@@ -22,8 +29,7 @@ body {
 }
 .container {
   display: grid;
-  height: 100vh;
-
+  position: relative;
   grid-template-columns: 220px 1fr;
   grid-template-rows: 56px 1fr;
 }

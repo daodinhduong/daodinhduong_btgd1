@@ -52,3 +52,26 @@ $.ajax({
     console.log(error);
   },
 });
+//Hàm hiển thị ra dialog
+//Author: DDDuong (8/12/2022)
+const showDialog = function () {
+  try {
+    document.querySelector(".dialog-container").style.display = "flex";
+  } catch (error) {
+    console.log("error");
+  }
+};
+//Nghe event để show ra dialog
+$(".content-header-add").click(showDialog);
+//Hàm tắt dialog
+//Author: DDDuong (8/12/2022)
+const closeDialog = function () {
+  try {
+    document.querySelector(".dialog-container").style.display = "none";
+  } catch (error) {
+    console.log("error");
+  }
+};
+//Nghe event để đóng dialog
+$(".dialog-close-button").click(closeDialog);
+$(".dialog-button-close").click(closeDialog);

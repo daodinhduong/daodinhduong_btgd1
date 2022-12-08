@@ -80,10 +80,14 @@
               <i class="content-header-search-icon icon"></i>
             </form>
             <div class="content-header-right">
-              <button class="content-header-add button button-default">
+              <button
+                class="content-header-add button button-default cursor-pointer"
+              >
                 Thêm
               </button>
-              <button class="content-header-export button">Xuất khẩu</button>
+              <button class="content-header-export button cursor-pointer">
+                Xuất khẩu
+              </button>
               <button class="content-header-more button"></button>
             </div>
           </div>
@@ -103,107 +107,7 @@
                   <td></td>
                 </tr>
               </thead>
-              <tbody>
-                <tr>
-                  <td class="text-align-center"><input type="checkbox" /></td>
-                  <td class="text-align-center">NV00001</td>
-                  <td class="text-align-left">NGUYỄN MINH HẢI</td>
-                  <td class="text-align-center">0354534566</td>
-                  <td>Tổ Toán - Tin</td>
-                  <td>Toán</td>
-                  <td>Phòng tin học</td>
-                  <td class="text-align-center">
-                    <img
-                      src="../../assets/Icons/ic_Check.png"
-                      width="25"
-                      height="25"
-                    />
-                  </td>
-                  <td class="text-align-center">
-                    <img
-                      src="../../assets/Icons/ic_Check.png"
-                      width="25"
-                      height="25"
-                    />
-                  </td>
-                  <td class="text-align-center">
-                    <img
-                      src="../../assets/Icons/ic_Edit.png"
-                      width="25"
-                      height="25"
-                    />
-                    <img
-                      src="../../assets/Icons/ic_Remove.png"
-                      width="25"
-                      height="25"
-                    />
-                  </td>
-                </tr>
-                <tr>
-                  <td class="text-align-center"><input type="checkbox" /></td>
-                  <td class="text-align-center">NV00002</td>
-                  <td class="text-align-left">Ý NHI</td>
-                  <td class="text-align-center">0354534568</td>
-                  <td>Tổ Hóa - Sinh</td>
-                  <td>Toán</td>
-                  <td>Phòng hóa - sinh</td>
-                  <td class="text-align-center">
-                    <img
-                      src="../../assets/Icons/ic_Check.png"
-                      width="25"
-                      height="25"
-                    />
-                  </td>
-                  <td class="text-align-center">
-                    <img
-                      src="../../assets/Icons/ic_Check.png"
-                      width="25"
-                      height="25"
-                    />
-                  </td>
-                  <td class="text-align-center">
-                    <img
-                      src="../../assets/Icons/ic_Edit.png"
-                      width="25"
-                      height="25"
-                    />
-                    <img
-                      src="../../assets/Icons/ic_Remove.png"
-                      width="25"
-                      height="25"
-                    />
-                  </td>
-                </tr>
-                <tr>
-                  <td class="text-align-center"><input type="checkbox" /></td>
-                  <td class="text-align-center">NV00003</td>
-                  <td class="text-align-left">DƯƠNG KIM SANH</td>
-                  <td class="text-align-center">0354534569</td>
-                  <td>Tổ Anh - Văn</td>
-                  <td>Anh, Văn</td>
-                  <td>Phòng hóa - sinh</td>
-                  <td class="text-align-center"></td>
-                  <td class="text-align-center">
-                    <img
-                      src="../../assets/Icons/ic_Check.png"
-                      width="25"
-                      height="25"
-                    />
-                  </td>
-                  <td class="text-align-center">
-                    <img
-                      src="../../assets/Icons/ic_Edit.png"
-                      width="25"
-                      height="25"
-                    />
-                    <img
-                      src="../../assets/Icons/ic_Remove.png"
-                      width="25"
-                      height="25"
-                    />
-                  </td>
-                </tr>
-              </tbody>
+              <tbody></tbody>
             </table>
           </div>
           <div class="content-footer">
@@ -215,6 +119,65 @@
               <div class="content-footer-last-page content-footer-icon"></div>
               <div>1/2 trang</div>
               <div class="totol-teacher">(56 giáo viên)</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="dialog-container">
+        <div class="dialog-add">
+          <div class="dialog-add-container">
+            <div class="dialog-left">
+              <div class="dialog-employee-img">
+                <div class="dialog-employee-img-add">Chọn ảnh</div>
+              </div>
+              <div class="dialog-employee-name">Họ và tên</div>
+              <div class="dialog-employee-code">Số hiệu cán bộ</div>
+            </div>
+            <div class="dialog-right">
+              <div class="dialog-right-header">
+                <div class="dialog-name">Thêm hồ sơ Cán bộ, giáo viên</div>
+                <div class="dialog-close-button cursor-pointer"></div>
+              </div>
+              <div class="dialog-right-body">
+                <div class="dialog-el-1">
+                  <div>Số hiệu cán bộ</div>
+                  <p class="color-red">*</p>
+                </div>
+                <input class="dialog-el-2 dialog-input" type="text" />
+                <div class="dialog-el-3 dialog-el__marrgin">
+                  <div>Họ và tên</div>
+                  <p class="color-red">*</p>
+                </div>
+                <input class="dialog-el-3 dialog-input" type="text" />
+                <div class="dialog-el-4">Số điện thoại</div>
+                <input class="dialog-el-5 dialog-input" type="text" />
+                <div class="dialog-el-6 dialog-el__marrgin">Email</div>
+                <input class="dialog-el-7 dialog-input" type="text" />
+                <div class="dialog-el-8">Tổ bộ môn</div>
+                <input class="dialog-el-9 dialog-input" type="text" />
+                <div class="dialog-el-10 dialog-el__marrgin">QL theo môn</div>
+                <input class="dialog-el-11 dialog-input" type="text" />
+                <div class="dialog-el-12">QL kho, phòng</div>
+                <input class="dialog-el-13 dialog-input" type="text" />
+              </div>
+              <div class="dialog-right-body-checkbox">
+                <input type="checkbox" />
+                <div class="checkbox-1-content">Trình độ nghiệp vụ QLTB</div>
+                <div class="dialog-right-body-checkbox-right">
+                  <input type="checkbox" />
+                  <div class="check-box-2-content">Đang làm việc</div>
+                </div>
+              </div>
+              <div class="dialog-right-footer">
+                <button
+                  class="dialog-button dialog-button-close cursor-pointer"
+                >
+                  Đóng
+                </button>
+                <button class="dialog-button dialog-button-save cursor-pointer">
+                  Lưu
+                </button>
+              </div>
             </div>
           </div>
         </div>
