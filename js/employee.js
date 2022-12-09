@@ -1,4 +1,5 @@
 "use strict";
+
 // GOI API LAY DU LIEU
 $.ajax({
   type: "GET",
@@ -61,8 +62,17 @@ const showDialog = function () {
     console.log("error");
   }
 };
-//Nghe event để show ra dialog
-$(".content-header-add").click(showDialog);
+//Lập trình cho các sự kiện
+//Author: DDDuong (8/12/2022)
+const createEvent = function () {
+  try {
+    $(".content-header-add").click(showDialog);
+    $(".dialog-close-button").click(closeDialog);
+    $(".dialog-button-close").click(closeDialog);
+  } catch (error) {
+    console.log("error");
+  }
+};
 //Hàm tắt dialog
 //Author: DDDuong (8/12/2022)
 const closeDialog = function () {
@@ -72,6 +82,21 @@ const closeDialog = function () {
     console.log("error");
   }
 };
-//Nghe event để đóng dialog
-$(".dialog-close-button").click(closeDialog);
-$(".dialog-button-close").click(closeDialog);
+createEvent();
+/**
+ * save dữ liệu
+ * AUTHOR: DDDuong (09/12/2022)
+ */
+const bntSaveOnClick = function () {
+  //1.Thu thập dữ liệu trên form
+  const employeeCode = $(".dialog-el-2").val();
+  const employeeName = $("#empName").val();
+  const employeePhone = $(".dialog-el-5").val();
+  const employeeEmail = $(".dialog-el-7").val();
+
+  //2.kiểm tra dữ liệu
+  //-Dữ liệu bắt buộc đã nhập chưa
+  //-Dữ liệu đã đúng định dạng chưa
+  //3. gọi API save dữ liệu
+  //4. Xử lí thông tin từ API trả về
+};

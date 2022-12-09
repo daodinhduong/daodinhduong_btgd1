@@ -37,10 +37,6 @@
 .content-header-add {
   width: 80px;
 }
-
 .content-header-export {
   width: 96px;
-}
-.content-header input:focus {
-  outline: none;
 }

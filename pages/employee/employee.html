@@ -92,23 +92,25 @@
             </div>
           </div>
           <div class="content-body">
-            <table border="1px solid #d5d8e6" id="tb-employee-list">
-              <thead>
-                <tr class="table-header">
-                  <td class="text-align-center"><input type="checkbox" /></td>
-                  <td class="text-align-center">Số hiệu cán bộ</td>
-                  <td class="text-align-left">Họ và tên</td>
-                  <td class="text-align-center">Số điện thoại</td>
-                  <td>Tổ chuyên môn</td>
-                  <td>QL theo môn</td>
-                  <td>QL kho, phòng</td>
-                  <td class="text-align-center">Đào tạo QLTB</td>
-                  <td class="text-align-center">Đang làm việc</td>
-                  <td></td>
-                </tr>
-              </thead>
-              <tbody></tbody>
-            </table>
+            <div class="table-container">
+              <table border="1px solid #d5d8e6" id="tb-employee-list">
+                <thead>
+                  <tr class="table-header">
+                    <td class="text-align-center"><input type="checkbox" /></td>
+                    <td class="text-align-center">Số hiệu cán bộ</td>
+                    <td class="text-align-left">Họ và tên</td>
+                    <td class="text-align-center">Số điện thoại</td>
+                    <td>Tổ chuyên môn</td>
+                    <td>QL theo môn</td>
+                    <td>QL kho, phòng</td>
+                    <td class="text-align-center">Đào tạo QLTB</td>
+                    <td class="text-align-center">Đang làm việc</td>
+                    <td></td>
+                  </tr>
+                </thead>
+                <tbody></tbody>
+              </table>
+            </div>
           </div>
           <div class="content-footer">
             <div class="content-footer-container">
@@ -148,7 +150,11 @@
                   <div>Họ và tên</div>
                   <p class="color-red">*</p>
                 </div>
-                <input class="dialog-el-3 dialog-input" type="text" />
+                <input
+                  id="empName"
+                  class="dialog-el-3 dialog-input"
+                  type="text"
+                />
                 <div class="dialog-el-4">Số điện thoại</div>
                 <input class="dialog-el-5 dialog-input" type="text" />
                 <div class="dialog-el-6 dialog-el__marrgin">Email</div>
@@ -161,10 +167,10 @@
                 <input class="dialog-el-13 dialog-input" type="text" />
               </div>
               <div class="dialog-right-body-checkbox">
-                <input type="checkbox" />
+                <input type="radio" name="work" />
                 <div class="checkbox-1-content">Trình độ nghiệp vụ QLTB</div>
                 <div class="dialog-right-body-checkbox-right">
-                  <input type="checkbox" />
+                  <input type="radio" name="work" />
                   <div class="check-box-2-content">Đang làm việc</div>
                 </div>
               </div>

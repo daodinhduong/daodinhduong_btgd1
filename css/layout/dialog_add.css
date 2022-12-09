@@ -81,7 +81,7 @@
   height: 170px;
   display: grid;
   grid-template-columns: 108px 140px 108px 180px;
-  grid-template-rows: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 28px 1fr 1fr 1fr;
   row-gap: 18px;
   column-gap: 4px;
   align-items: center;
