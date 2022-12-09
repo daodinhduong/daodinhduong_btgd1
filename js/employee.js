@@ -34,12 +34,12 @@ $.ajax({
           />
         </td>
         <td class="text-align-center">
-          <img
+          <img class='cursor-pointer'
             src="../../assets/Icons/ic_Edit.png"
             width="25"
             height="25"
           />
-          <img
+          <img class='cursor-pointer'
             src="../../assets/Icons/ic_Remove.png"
             width="25"
             height="25"
@@ -53,28 +53,31 @@ $.ajax({
     console.log(error);
   },
 });
-//Hàm hiển thị ra dialog
-//Author: DDDuong (8/12/2022)
+/**
+ * Hàm  mở dialog
+ * AUTHOR: DDDuong (09/12/2022)
+ */
 const showDialog = function () {
   try {
     document.querySelector(".dialog-container").style.display = "flex";
+    // Lấy mã nhân viên mới
+    $.ajax({
+      type: "GET",
+      url: "https://cukcuk.manhnv.net/api/v1/Employees/NewEmployeeCode",
+      success: function (response) {
+        $("#txtEmployeeCode").val(response);
+      },
+    });
+    //forcus vào ô nhập liệu đầu tiên
+    $("#txtEmployeeCode").focus();
   } catch (error) {
     console.log("error");
   }
 };
-//Lập trình cho các sự kiện
-//Author: DDDuong (8/12/2022)
-const createEvent = function () {
-  try {
-    $(".content-header-add").click(showDialog);
-    $(".dialog-close-button").click(closeDialog);
-    $(".dialog-button-close").click(closeDialog);
-  } catch (error) {
-    console.log("error");
-  }
-};
-//Hàm tắt dialog
-//Author: DDDuong (8/12/2022)
+/**
+ * Hàm  đóng dialog
+ * AUTHOR: DDDuong (09/12/2022)
+ */
 const closeDialog = function () {
   try {
     document.querySelector(".dialog-container").style.display = "none";
@@ -82,21 +85,86 @@ const closeDialog = function () {
     console.log("error");
   }
 };
-createEvent();
+/**
+ * Hàm đóng mở combobox
+ * AUTHOR: DDDuong (09/12/2022)
+ */
+const combobox1 = function () {
+  try {
+    $(".dialog-el-13").css("position", "static");
+    $(".dialog-el-9-list").toggle();
+    $(".dialog-el-11-list").hide();
+    $(".dialog-el-13-list").hide();
+  } catch (error) {
+    console.log("error");
+  }
+};
+const combobox2 = function () {
+  try {
+    $(".dialog-el-13").css("position", "static");
+    $(".dialog-el-11-list").toggle();
+    $(".dialog-el-9-list").hide();
+    $(".dialog-el-13-list").hide();
+  } catch (error) {
+    console.log("error");
+  }
+};
+const combobox3 = function () {
+  try {
+    $(".dialog-el-13").css("position", "relative");
+
+    $(".dialog-el-13-list").toggle();
+    $(".dialog-el-9-list").hide();
+    $(".dialog-el-11-list").hide();
+  } catch (error) {
+    console.log("error");
+  }
+};
+
+//Lập trình cho các sự kiện
+//Author: DDDuong (8/12/2022)
+const createEvent = function () {
+  try {
+    $(".content-header-add").click(showDialog);
+    $(".dialog-close-button").click(closeDialog);
+    $(".dialog-button-close").click(closeDialog);
+    $(".dialog-el-9-select").click(combobox1);
+    $(".dialog-el-11-select").click(combobox2);
+    $(".dialog-el-13-select").click(combobox3);
+    $("#dialog-button-save").click(bntSaveOnClick);
+  } catch (error) {
+    console.log("error");
+  }
+};
+
 /**
  * save dữ liệu
  * AUTHOR: DDDuong (09/12/2022)
  */
 const bntSaveOnClick = function () {
-  //1.Thu thập dữ liệu trên form
-  const employeeCode = $(".dialog-el-2").val();
-  const employeeName = $("#empName").val();
-  const employeePhone = $(".dialog-el-5").val();
-  const employeeEmail = $(".dialog-el-7").val();
+  try {
+    //1.Thu thập dữ liệu trên form
+    const employeeCode = $("#txtEmployeeCode").val();
+    const employeeName = $("#txtEmployeeName").val();
+    const mobie = $("#txtEmployeeMobie").val();
+    const email = $("#txtEmployeeEmail").val();
+    let errorMsgs = [];
+    //2.kiểm tra dữ liệu
+    //-Dữ liệu bắt buộc đã nhập chưa
+    if (!employeeCode) {
+      errorMsgs.push("Số hiệu cán bộ không được phép để trống");
+    }
+    if (!employeeName) {
+      errorMsgs.push("Họ và tên không được phép để trống");
+    }
+    //-Kiểm tra errorMsgs xem có lỗi không
+    if (errorMsgs.length > 0) {
+    }
 
-  //2.kiểm tra dữ liệu
-  //-Dữ liệu bắt buộc đã nhập chưa
-  //-Dữ liệu đã đúng định dạng chưa
-  //3. gọi API save dữ liệu
-  //4. Xử lí thông tin từ API trả về
+    //3. gọi API save dữ liệu
+    //4. Xử lí thông tin từ API trả về
+  } catch (error) {
+    console.log("error");
+  }
 };
+createEvent();
