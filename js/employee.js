@@ -132,11 +132,22 @@ const createEvent = function () {
     $(".dialog-el-11-select").click(combobox2);
     $(".dialog-el-13-select").click(combobox3);
     $("#dialog-button-save").click(bntSaveOnClick);
+    $(".toast-message-close").click(bntCloseErrorMessage);
   } catch (error) {
     console.log("error");
   }
 };
-
+/**
+ * Đóng thông báo lỗi khi nhập sai thông tin cán bộ
+ * AUTHOR: DDDuong (10/12/2022)
+ */
+const bntCloseErrorMessage = function () {
+  try {
+    $(".toast-message").hide();
+  } catch (error) {
+    console.log("error");
+  }
+};
 /**
  * save dữ liệu
  * AUTHOR: DDDuong (09/12/2022)
@@ -157,8 +168,15 @@ const bntSaveOnClick = function () {
     if (!employeeName) {
       errorMsgs.push("Họ và tên không được phép để trống");
     }
+    //Clear error message
+    document.querySelector(".toast-message-content").innerHTML = "";
     //-Kiểm tra errorMsgs xem có lỗi không
     if (errorMsgs.length > 0) {
+      for (const errMsg of errorMsgs) {
+        $(".toast-message-content").append(`<div >${errMsg}</div>`);
+      }
+      // Nếu có lỗi thì hiển thị ra dialog báo lỗi
+      $(".toast-message").css("display", "flex");
     }
 
     //3. gọi API save dữ liệu

@@ -47,7 +47,7 @@
   border-radius: 4px;
   position: absolute;
   right: 0;
-  width: 280px;
+  left: 0;
   height: 170px;
   overflow-y: auto;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 5px;
@@ -83,7 +83,7 @@
   position: absolute;
   right: 0;
   left: 0;
-  height: 135px;
+  height: 124px;
   overflow-y: auto;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 5px;
   display: none;
