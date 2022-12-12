@@ -1,4 +1,15 @@
+.toast-message-container {
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background-color: #fff;
+  height: 100%;
+  display: none;
+  background-color: rgba(0, 0, 0, 0.6);
+}
 .toast-message {
+  display: flex;
   border-radius: 4px;
   min-width: 300px;
   min-height: 80px;
@@ -6,7 +17,6 @@
   position: absolute;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 5px;
   border-left: solid 8px var(--delete-color);
-  display: none;
   align-items: center;
   padding: 18px;
   justify-content: space-between;

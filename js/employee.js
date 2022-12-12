@@ -1,4 +1,4 @@
-"use strict";
+// "use strict";
 
 // GOI API LAY DU LIEU
 $.ajax({
@@ -67,7 +67,11 @@ const showDialog = function () {
       success: function (response) {
         $("#txtEmployeeCode").val(response);
       },
+      success(error) {
+        console.log(error);
+      },
     });
+
     //forcus vào ô nhập liệu đầu tiên
     $("#txtEmployeeCode").focus();
   } catch (error) {
@@ -85,56 +89,77 @@ const closeDialog = function () {
     console.log("error");
   }
 };
+
 /**
- * Hàm đóng mở combobox
- * AUTHOR: DDDuong (09/12/2022)
+ * Lập trình cho các sự kiện
+ * AUTHOR: DDDuong (08/12/2022)
  */
-const combobox1 = function () {
-  try {
-    $(".dialog-el-13").css("position", "static");
-    $(".dialog-el-9-list").toggle();
-    $(".dialog-el-11-list").hide();
-    $(".dialog-el-13-list").hide();
-  } catch (error) {
-    console.log("error");
-  }
-};
-const combobox2 = function () {
-  try {
-    $(".dialog-el-13").css("position", "static");
-    $(".dialog-el-11-list").toggle();
-    $(".dialog-el-9-list").hide();
-    $(".dialog-el-13-list").hide();
-  } catch (error) {
-    console.log("error");
-  }
-};
-const combobox3 = function () {
-  try {
-    $(".dialog-el-13").css("position", "relative");
-
-    $(".dialog-el-13-list").toggle();
-    $(".dialog-el-9-list").hide();
-    $(".dialog-el-11-list").hide();
-  } catch (error) {
-    console.log("error");
-  }
-};
-
-//Lập trình cho các sự kiện
-//Author: DDDuong (8/12/2022)
 const createEvent = function () {
   try {
     $(".content-header-add").click(showDialog);
     $(".dialog-close-button").click(closeDialog);
     $(".dialog-button-close").click(closeDialog);
-    $(".dialog-el-9-select").click(combobox1);
-    $(".dialog-el-11-select").click(combobox2);
-    $(".dialog-el-13-select").click(combobox3);
     $("#dialog-button-save").click(bntSaveOnClick);
     $(".toast-message-close").click(bntCloseErrorMessage);
+    $("#txtEmployeeCode").blur(onValidateFieldRequired1);
+    $("#txtEmployeeName").blur(onValidateFieldRequired2);
   } catch (error) {
     console.log("error");
+  }
+};
+/**
+ * Hàm khi điền xong thì cho ô input dialog trở về bình thường
+ * AUTHOR: DDDuong (11/12/2022)
+ */
+const onValidateFieldRequired1 = function () {
+  try {
+    const value = $("#txtEmployeeCode").val();
+    if (!value) {
+      $("#txtEmployeeCode").addClass("input-error");
+    } else {
+      $("#txtEmployeeCode").removeClass("input-error");
+      $(".dialog-el-2-error").hide();
+      $("#txtEmployeeCode").hover(function () {
+        $(".dialog-el-2-error").hide();
+      });
+    }
+  } catch (error) {
+    console.log(error);
+  }
+};
+const onValidateFieldRequired2 = function () {
+  try {
+    const value = $("#txtEmployeeName").val();
+    if (!value) {
+      $("#txtEmployeeName").addClass("input-error");
+    } else {
+      $("#txtEmployeeName").removeClass("input-error");
+      $(".dialog-el-0-error").hide();
+      $("#txtEmployeeName").hover(function () {
+        $(".dialog-el-0-error").hide();
+      });
+    }
+  } catch (error) {
+    console.log(error);
+  }
+};
+//Hàm để hover vào input là show ra lỗi không nhập số hiệu và họ tên
+const showError1 = function () {
+  try {
+    $(".dialog-el-2-error").toggle();
+    $(".dialog-el-0").css("position", "static");
+    $(".dialog-el-2").css("position", "relative");
+  } catch (error) {
+    console.log(error);
+  }
+};
+const showError2 = function () {
+  try {
+    $(".dialog-el-0-error").toggle();
+    $(".dialog-el-0").css("position", "relative");
+    $(".dialog-el-2").css("position", "static");
+  } catch (error) {
+    console.log(error);
   }
 };
 /**
@@ -143,7 +168,11 @@ const createEvent = function () {
  */
 const bntCloseErrorMessage = function () {
   try {
-    $(".toast-message").hide();
+    $(".toast-message-container").hide();
+
+    if (errorFocus.length > 0) {
+      errorFocus[0].focus();
+    }
   } catch (error) {
     console.log("error");
   }
@@ -160,23 +189,56 @@ const bntSaveOnClick = function () {
     const mobie = $("#txtEmployeeMobie").val();
     const email = $("#txtEmployeeEmail").val();
     let errorMsgs = [];
+    errorFocus = [];
+
     //2.kiểm tra dữ liệu
+
     //-Dữ liệu bắt buộc đã nhập chưa
     if (!employeeCode) {
       errorMsgs.push("Số hiệu cán bộ không được phép để trống");
+      $("#txtEmployeeCode").addClass("input-error");
+      errorFocus.push($("#txtEmployeeCode"));
+      $("#txtEmployeeCode").hover(showError1);
+    } else {
+      $("#txtEmployeeCode").removeClass("input-error");
     }
     if (!employeeName) {
       errorMsgs.push("Họ và tên không được phép để trống");
+      $("#txtEmployeeName").addClass("input-error");
+      errorFocus.push($("#txtEmployeeName"));
+      $("#txtEmployeeName").hover(showError2);
+    } else {
+      $("#txtEmployeeName").removeClass("input-error");
     }
     //Clear error message
     document.querySelector(".toast-message-content").innerHTML = "";
     //-Kiểm tra errorMsgs xem có lỗi không
     if (errorMsgs.length > 0) {
+      // Nếu có lỗi thì hiển thị ra dialog báo lỗi
       for (const errMsg of errorMsgs) {
         $(".toast-message-content").append(`<div >${errMsg}</div>`);
       }
-      // Nếu có lỗi thì hiển thị ra dialog báo lỗi
-      $(".toast-message").css("display", "flex");
+      $(".toast-message-container").css("display", "flex");
+    } else {
+      $.ajax({
+        type: "POST",
+        url: "https://amis.manhnv.net/api/v1/Employees",
+        contentType: "application/json",
+        dataType: "json",
+        data: JSON.stringify({
+          employeeCode: `${employeeCode}`,
+          employeeName: `${employeeName}`,
+          email: `${email}`,
+          telephoneNumber: `${mobie}`,
+          departmentId: "142cb08f-7c31-21fa-8e90-67245e8b283e",
+        }),
+        success() {
+          alert("succes");
+        },
+        error(error) {
+          console.log(error);
+        },
+      });
     }
 
     //3. gọi API save dữ liệu

@@ -36,11 +36,16 @@
   cursor: pointer;
 }
 .dialog-el-11-select {
+  cursor: pointer;
   display: flex;
   justify-content: space-between;
+}
+.dialog-el-11-select-content {
+  display: flex;
   align-items: center;
   padding-left: 8px;
   cursor: pointer;
+  gap: 10px;
 }
 .dialog-el-11-list {
   background-color: #fff;
@@ -77,6 +82,12 @@
   padding-left: 8px;
   cursor: pointer;
 }
+.dialog-el-13-select-content {
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
 .dialog-el-13-list {
   background-color: #fff;
   border-radius: 4px;
@@ -87,7 +98,6 @@
   overflow-y: auto;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 5px;
   display: none;
-  /* position: static; */
 }
 .dialog-el-13-list-item {
   padding: 8px;
