@@ -39,7 +39,6 @@ body {
 }
 .container {
   display: grid;
-  position: relative;
   grid-template-columns: 220px 1fr;
   grid-template-rows: 56px 1fr;
 }
